@@ -12,8 +12,8 @@ export const profile = {
   ] as { text: string; accent: boolean }[],
   lede: "Software Engineer building reliable products across data, AI and distributed systems. I care about thoughtful architecture, sharp execution and technology that holds up beyond the demo.",
   email: "phulwanikashish@gmail.com",
-  github: "https://github.com/YOUR_USERNAME",
-  linkedin: "https://linkedin.com/in/YOUR_USERNAME",
+  github: "https://github.com/kashish0201",
+  linkedin: "https://www.linkedin.com/in/kashishh-phulwani/",
   resumeUrl: "/Kashish_Phulwani_resume.pdf", // drop your PDF in /public
 };
 
