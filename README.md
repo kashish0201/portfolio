@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Next.js + Tailwind
 
-## Getting Started
+## Setup
 
-First, run the development server:
+```bash
+npx create-next-app@latest portfolio
+```
+
+Answer the prompts: **TypeScript yes, Tailwind CSS yes, App Router yes, `src/` directory no, import alias `@/*` yes.**
+
+Then copy these files over the generated project:
+
+```
+app/layout.tsx
+app/page.tsx
+app/globals.css     ← replaces the generated one
+components/
+data/
+```
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+No extra dependencies. Fonts load through `next/font/google`, so nothing to install and no layout shift.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tailwind version
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This uses **Tailwind v4**, which is what `create-next-app` ships now. The palette lives in the `@theme` block at the top of `globals.css` — no `tailwind.config.js` needed. Tokens there become utilities automatically: `--color-accent` gives you `text-accent`, `bg-accent`, `border-accent`.
 
-## Learn More
+If you end up on Tailwind v3 instead, move those colors into `tailwind.config.js` under `theme.extend.colors` and swap the `@import "tailwindcss"` line for the three `@tailwind` directives.
 
-To learn more about Next.js, take a look at the following resources:
+## Editing content
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Everything you'll want to change is in `data/content.ts` — copy, stats, tags, projects, experience. You shouldn't need to touch the components to update the text.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Recoloring
 
-## Deploy on Vercel
+Change the accent in one place, in `globals.css`:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```css
+--color-accent: #4C8DFF;      /* main blue */
+--color-accent-soft: #8CB8FF; /* hover / lighter text */
+--color-accent-deep: #1E3A6B; /* unused by default, there if you need depth */
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The ambient glow in `body::before` is keyed to the same hue — update the `rgba()` values there to match if you shift it far.
+
+`--color-alert` (#F0765E) is deliberately the only non-blue in the system. It exists so the chaos-failure state reads as *wrong* against the blue. If you make it blue too, the interaction loses its punch.
+
+## Before you ship
+
+- [ ] Put your resume at `public/resume.pdf`
+- [ ] Fill in real GitHub and LinkedIn URLs in `data/content.ts`
+- [ ] Replace the `href: "#"` on projects with real links
+- [ ] The throughput/uptime numbers in the health panel are illustrative — either wire them to something real or leave them clearly as a demo
+- [ ] Confirm the "Summer 2027 internships" line is actually right
+- [ ] Write the Academic Assistant case study — that page is what converts
+- [ ] Add an OG image (`app/opengraph-image.png`, 1200×630) so links preview well
+
+## Deploy
+
+Push to GitHub, import the repo at vercel.com, done. Every push to `main` redeploys. Add a custom domain in the project settings.

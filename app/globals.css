@@ -1,26 +1,101 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Surfaces — neutral dark navy. Hue is locked around 218 so nothing reads violet. */
+  --color-base: #070b12;
+  --color-surface: #0c121d;
+  --color-surface-2: #111a28;
+  --color-line: rgba(76, 141, 255, 0.16);
+  --color-line-strong: rgba(76, 141, 255, 0.4);
+
+  /* One accent: blue. Steel is the quiet supporting tone (blue-grey, not violet). */
+  --color-accent: #4c8dff;
+  --color-accent-soft: #8cb8ff;
+  --color-accent-deep: #1e3a6b;
+  --color-steel: #6e8cb5;
+
+  /* Only non-blue in the system — reserved for the failure state. */
+  --color-alert: #f0765e;
+
+  /* Text sits in the blue family too, so type reads blue rather than grey. */
+  --color-ink: #dce9fb;
+  --color-ink-dim: #94aece;
+  --color-ink-faint: #5a7392;
+
+  --font-display: var(--font-bricolage);
+  --font-body: var(--font-inter-tight);
+  --font-mono: var(--font-jetbrains);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-base);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Ambient depth — pure blue at low opacity. No second hue, so no purple mixing. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(58rem 38rem at 12% -6%, rgba(76, 141, 255, 0.13), transparent 62%),
+    radial-gradient(46rem 34rem at 96% 6%, rgba(76, 141, 255, 0.07), transparent 62%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 36s linear infinite;
+}
+
+@keyframes pulse-dot {
+  50% {
+    opacity: 0.3;
+  }
+}
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
