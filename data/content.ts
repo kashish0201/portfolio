@@ -4,21 +4,22 @@ export const profile = {
   name: "Kashish Phulwani",
   brand: "kashish",
   status: "OPEN TO SUMMER 2027 INTERNSHIPS",
-  headline: {
-    before: "I build backends that ",
-    accent: "don't fall over.",
-  },
-  lede: "Backend and infrastructure engineer. I ship data pipelines, RESTful services and AI retrieval systems — then I make them observable, reproducible, and deliberately hard to break.",
+  headline: [
+    { text: "Somewhere between ", accent: false },
+    { text: "“what if?”", accent: true },
+    { text: " and ", accent: false },
+    { text: "“it works.”", accent: true },
+  ] as { text: string; accent: boolean }[],
+  lede: "Software Engineer building reliable products across data, AI and distributed systems. I care about thoughtful architecture, sharp execution and technology that holds up beyond the demo.",
   email: "phulwanikashish@gmail.com",
   github: "https://github.com/YOUR_USERNAME",
   linkedin: "https://linkedin.com/in/YOUR_USERNAME",
-  resumeUrl: "/resume.pdf", // drop your PDF in /public
+  resumeUrl: "/Kashish_Phulwani_resume.pdf", // drop your PDF in /public
 };
 
 export const stats = [
   { value: "2.5 yrs", unit: "yrs", label: "AT JPMORGAN" },
   { value: "6", unit: "", label: "PROD SERVICES" },
-  { value: "4.00", unit: "", label: "MS GPA" },
 ];
 
 export const stack = [

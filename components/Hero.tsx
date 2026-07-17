@@ -11,15 +11,22 @@ export default function Hero() {
             {profile.status}
           </span>
 
-          <h1 className="mb-5 font-display text-[2.6rem] font-extrabold leading-[0.98] tracking-[-0.035em] md:text-[4rem]">
-            {profile.headline.before}
-            <span className="text-accent">{profile.headline.accent}</span>
+          <h1 className="mb-5 font-display text-[2.3rem] font-extrabold leading-[1.02] tracking-[-0.035em] md:text-[3.4rem]">
+            {profile.headline.map((seg, i) => (
+              <span key={i} className={seg.accent ? "text-accent" : "text-ink"}>
+                {seg.text}
+              </span>
+            ))}
           </h1>
 
-          <p className="mb-7 max-w-[44ch] text-[17px] text-ink-dim">
-            {profile.lede} Previously{" "}
+          {/* <p className="mb-7 max-w-[44ch] text-[17px] text-ink-dim">
+            {profile.lede} Former{" "}
             <strong className="font-medium text-ink">JPMorgan Chase</strong>, now an MS at{" "}
             <strong className="font-medium text-ink">CSULB</strong>.
+          </p> */}
+
+          <p className="mb-7 max-w-[44ch] text-[17px] text-ink-dim">
+            {profile.lede}
           </p>
 
           <div className="mb-8 flex flex-wrap gap-3">
