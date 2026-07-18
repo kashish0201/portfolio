@@ -1,26 +1,28 @@
 @import "tailwindcss";
 
 @theme {
-  /* Surfaces — neutral dark navy. Hue is locked around 218 so nothing reads violet. */
-  --color-base: #070b12;
-  --color-surface: #0c121d;
-  --color-surface-2: #111a28;
-  --color-line: rgba(76, 141, 255, 0.16);
-  --color-line-strong: rgba(76, 141, 255, 0.4);
+  /* Surfaces — warm brown-black. Hue sits in the amber range so the sand reads intentional. */
+  --color-base: #0e0c09;
+  --color-surface: #141109;
+  --color-surface-2: #1a160e;
+  --color-line: rgba(214, 184, 140, 0.15);
+  --color-line-strong: rgba(214, 184, 140, 0.4);
 
-  /* One accent: blue. Steel is the quiet supporting tone (blue-grey, not violet). */
-  --color-accent: #4c8dff;
-  --color-accent-soft: #8cb8ff;
-  --color-accent-deep: #1e3a6b;
-  --color-steel: #6e8cb5;
+  /* Accent: sand. Steel here is a muted tan-grey supporting tone. */
+  --color-accent: #e8c99a;
+  --color-accent-soft: #f0dcb8;
+  --color-accent-deep: #6b5836;
+  --color-steel: #a08a66;
 
-  /* Only non-blue in the system — reserved for the failure state. */
-  --color-alert: #f0765e;
+  /* The one non-sand colour — a redder ember, reserved for the failure state.
+     It has to be pushed redder than the sand base or it won't read as "wrong"
+     against an already-warm palette. */
+  --color-alert: #e8784a;
 
-  /* Text sits in the blue family too, so type reads blue rather than grey. */
-  --color-ink: #dce9fb;
-  --color-ink-dim: #94aece;
-  --color-ink-faint: #5a7392;
+  /* Text sits in the tan family. */
+  --color-ink: #e4cfa6;
+  --color-ink-dim: #b39d78;
+  --color-ink-faint: #7a6b52;
 
   --font-display: var(--font-bricolage);
   --font-body: var(--font-inter-tight);
@@ -39,14 +41,14 @@ body {
   overflow-x: hidden;
 }
 
-/* Ambient depth — pure blue at low opacity. No second hue, so no purple mixing. */
+/* Ambient depth — warm sand at low opacity. Single hue, so nothing muddies. */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background:
-    radial-gradient(58rem 38rem at 12% -6%, rgba(76, 141, 255, 0.13), transparent 62%),
-    radial-gradient(46rem 34rem at 96% 6%, rgba(76, 141, 255, 0.07), transparent 62%);
+    radial-gradient(58rem 38rem at 12% -6%, rgba(214, 184, 140, 0.1), transparent 62%),
+    radial-gradient(46rem 34rem at 96% 6%, rgba(214, 184, 140, 0.05), transparent 62%);
   pointer-events: none;
   z-index: 0;
 }

@@ -6,18 +6,17 @@ const POINTS = 48;
 const TICK_MS = 900;
 const CHAOS_MS = 5200;
 
-/** Deterministic baseline so SSR and the first client paint match. */
-const INITIAL_DATA = Array.from(
-  { length: POINTS },
-  (_, i) => 46 + Math.sin(i * 0.35) * 5,
-);
+/** Fixed seed so SSR markup matches the client's first paint. */
+function seed() {
+  return Array.from({ length: POINTS }, (_, i) => 40 + ((i * 7) % 13));
+}
 
 export default function HealthPanel() {
-  const [data, setData] = useState<number[]>(INITIAL_DATA);
-  const [throughput, setThroughput] = useState(1.2);
-  const [uptime, setUptime] = useState(99.9);
+  const [data, setData] = useState<number[]>(seed);
   const [chaos, setChaos] = useState(false);
   const [badge, setBadge] = useState("ALL SYSTEMS NOMINAL");
+  const [throughput, setThroughput] = useState(1.2);
+  const [uptime, setUptime] = useState(99.9);
   const chaosRef = useRef(false);
 
   useEffect(() => {
@@ -26,15 +25,13 @@ export default function HealthPanel() {
 
   useEffect(() => {
     const id = setInterval(() => {
-      const degraded = chaosRef.current;
+      const isChaos = chaosRef.current;
       setData((prev) => {
-        const next = degraded
-          ? 120 + Math.random() * 60
-          : 40 + Math.random() * 12;
+        const next = isChaos ? 120 + Math.random() * 60 : 40 + Math.random() * 12;
         return [...prev.slice(1), next];
       });
-      setThroughput(degraded ? 0.3 + Math.random() * 0.3 : 1.1 + Math.random() * 0.3);
-      setUptime(degraded ? 97.4 + Math.random() * 0.4 : 99.9);
+      setThroughput(isChaos ? 0.3 + Math.random() * 0.3 : 1.1 + Math.random() * 0.3);
+      setUptime(isChaos ? 97.4 + Math.random() * 0.4 : 99.9);
     }, TICK_MS);
     return () => clearInterval(id);
   }, []);
@@ -53,7 +50,9 @@ export default function HealthPanel() {
 
   const latest = data[data.length - 1];
   const stroke = chaos ? "var(--color-alert)" : "var(--color-accent)";
-  const areaFill = chaos ? "rgba(240,118,94,0.12)" : "rgba(76,141,255,0.12)";
+  const areaFill = chaos
+    ? "color-mix(in srgb, var(--color-alert) 14%, transparent)"
+    : "color-mix(in srgb, var(--color-accent) 14%, transparent)";
 
   const pts = data
     .map((v, i) => {
@@ -64,7 +63,7 @@ export default function HealthPanel() {
     .join(" ");
 
   return (
-    <div className="rounded-2xl border border-line bg-gradient-to-br from-surface-2 to-surface p-5 shadow-[0_30px_70px_-30px_rgba(76,141,255,0.38)]">
+    <div className="rounded-2xl border border-line bg-gradient-to-br from-surface-2 to-surface p-5 shadow-[0_30px_70px_-30px_rgba(0,0,0,0.55)]">
       <div className="mb-4 flex items-center justify-between gap-3">
         <span className="font-mono text-[11px] tracking-widest text-ink-faint">
           SERVICE HEALTH — LIVE
