@@ -85,8 +85,8 @@ export default function Contact() {
             <span>© {new Date().getFullYear()} KASHISH PHULWANI</span>
             <div className="flex gap-5">
               <a href="#about" className="hover:text-accent">About</a>
-              <a href="#skills" className="hover:text-accent">Skills</a>
               <a href="#work" className="hover:text-accent">Projects</a>
+              <a href="#skills" className="hover:text-accent">Skills</a>
               <a href="#experience" className="hover:text-accent">Experience</a>
               <a href="#contact" className="hover:text-accent">Contact</a>
             </div>
