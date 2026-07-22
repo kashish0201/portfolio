@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Reveal({
   children,
   className = "",
 }: {
-  children: ReactNode;
+  children: React.ReactNode;
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -24,7 +24,7 @@ export default function Reveal({
           }
         });
       },
-      { threshold: 0.12 },
+      { threshold: 0.12 }
     );
 
     io.observe(el);
@@ -32,7 +32,7 @@ export default function Reveal({
   }, []);
 
   return (
-    <div ref={ref} className={`reveal ${className}`.trim()}>
+    <div ref={ref} className={`reveal ${className}`}>
       {children}
     </div>
   );

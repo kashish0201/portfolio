@@ -39,14 +39,14 @@ Everything you'll want to change is in `data/content.ts` — copy, stats, tags, 
 Change the accent in one place, in `globals.css`:
 
 ```css
---color-accent: #4C8DFF;      /* main blue */
---color-accent-soft: #8CB8FF; /* hover / lighter text */
---color-accent-deep: #1E3A6B; /* unused by default, there if you need depth */
+--color-accent: #E8C99A;      /* sand — the main accent */
+--color-accent-soft: #F0DCB8; /* hover / lighter text */
+--color-accent-deep: #6B5836; /* unused by default, there if you need depth */
 ```
 
 The ambient glow in `body::before` is keyed to the same hue — update the `rgba()` values there to match if you shift it far.
 
-`--color-alert` (#F0765E) is deliberately the only non-blue in the system. It exists so the chaos-failure state reads as *wrong* against the blue. If you make it blue too, the interaction loses its punch.
+`--color-alert` (#E8784A) is the only non-sand colour in the system. It's pushed redder than the sand base on purpose — against an already-warm palette a plain amber wouldn't read as *wrong*. It's used only for the chaos-failure state; if you cool the whole palette down later, you can relax it.
 
 ## Before you ship
 
