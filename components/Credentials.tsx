@@ -1,4 +1,4 @@
-import { credentials, profiles } from "@/data/content";
+import { credentials } from "@/data/content";
 import Reveal from "./Reveal";
 import SectionHeader from "./SectionHeader";
 
@@ -62,6 +62,7 @@ export default function Credentials() {
         </div>
       </section>
 
+      {/* Profiles section temporarily hidden
       <section id="profiles" className="border-t border-line py-20 md:py-24">
         <div className="mx-auto max-w-5xl px-7">
           <Reveal>
@@ -110,6 +111,7 @@ export default function Credentials() {
           </div>
         </div>
       </section>
+      */}
     </>
   );
 }
