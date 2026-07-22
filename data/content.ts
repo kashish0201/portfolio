@@ -6,7 +6,6 @@ export const profile = {
   brand: "kashish",
   status: "OPEN TO SUMMER 2027 INTERNSHIPS",
   role: "Backend & Infrastructure Engineer",
-  tagline: "Python • AWS • Distributed Systems • AI Retrieval",
   headline: [
     { text: "Somewhere between ", accent: false },
     { text: "\u201Cwhat if?\u201D", accent: true },

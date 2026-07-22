@@ -20,9 +20,6 @@ export default function Hero() {
         <p className="mb-1.5 font-display text-[17px] font-semibold tracking-tight text-ink">
           {profile.name} — {profile.role}
         </p>
-        <p className="mb-6 font-mono text-[11.5px] tracking-wider text-accent-soft">
-          {profile.tagline}
-        </p>
 
         <p className="mb-8 max-w-[50ch] text-[16px] leading-relaxed text-ink-dim">
           {profile.lede}
