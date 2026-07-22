@@ -1,6 +1,6 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Ticker from "@/components/Ticker";
+// import Ticker from "@/components/Ticker";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Work from "@/components/Work";
@@ -15,7 +15,7 @@ export default function Home() {
       <Nav />
       <main id="top" className="relative z-10">
         <Hero />
-        <Ticker />
+        {/* <Ticker /> */}
         <About />
         <Work />
         <Skills />
