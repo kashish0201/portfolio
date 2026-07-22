@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Surfaces — warm brown-black. Hue sits in the amber range so the sand reads intentional. */
+  /* Surfaces - warm brown-black. Hue sits in the amber range so the sand reads intentional. */
   --color-base: #0e0c09;
   --color-surface: #141109;
   --color-surface-2: #1a160e;
@@ -14,7 +14,7 @@
   --color-accent-deep: #6b5836;
   --color-steel: #a08a66;
 
-  /* The one non-sand colour — a redder ember, reserved for the failure state.
+  /* The one non-sand colour - a redder ember, reserved for the failure state.
      It has to be pushed redder than the sand base or it won't read as "wrong"
      against an already-warm palette. */
   --color-alert: #e8784a;
@@ -41,7 +41,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Ambient depth — warm sand at low opacity. Single hue, so nothing muddies. */
+/* Ambient depth - warm sand at low opacity. Single hue, so nothing muddies. */
 body::before {
   content: "";
   position: fixed;

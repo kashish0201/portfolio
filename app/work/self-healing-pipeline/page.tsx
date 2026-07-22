@@ -6,7 +6,7 @@ import ArchitectureDiagram from "@/components/ArchitectureDiagram";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Self-healing deployment pipeline — Kashish Phulwani",
+  title: "Self-healing deployment pipeline - Kashish Phulwani",
   description:
     "A case study: a small service deployed with Terraform, Docker, blue-green CI, live monitoring, and a chaos experiment proving it recovers from failure.",
 };
@@ -59,7 +59,7 @@ export default function CaseStudyPage() {
 
         <div className="mx-auto max-w-3xl px-7">
           <div className="rounded-xl border border-alert/25 bg-alert/[0.07] px-4 py-3.5 font-mono text-[12.5px] leading-relaxed text-[#F0A585]">
-            <span className="text-alert">NOTE TO SELF —</span> every bracketed value on
+            <span className="text-alert">NOTE TO SELF:</span> every bracketed value on
             this page is a placeholder. Swap in real numbers from your own runs before
             publishing. Empty metrics are worse than none, so don&apos;t ship the brackets.
           </div>
@@ -77,14 +77,14 @@ export default function CaseStudyPage() {
           <ArchitectureDiagram />
           <p className="mt-2 text-base text-ink-dim">
             The application is a{" "}
-            <span className="text-ink">[ e.g. URL shortener / notes API ]</span> —
+            <span className="text-ink">[ e.g. URL shortener / notes API ]</span> -
             deliberately trivial, maybe 200 lines. Everything worth talking about is the
             path it takes from a git push to serving live traffic, and what watches it once
             it&apos;s there.
           </p>
         </Section>
 
-        <Section title="Decisions worth explaining" sub="NOT A TUTORIAL — THE CHOICES">
+        <Section title="Decisions worth explaining" sub="NOT A TUTORIAL - THE CHOICES">
           {cs.decisions.map((d) => (
             <div key={d.h} className="relative border-l-2 border-line py-1 pb-5 pl-[22px]">
               <span className="absolute -left-[5px] top-2 h-2 w-2 rounded-full bg-accent" />
@@ -99,7 +99,7 @@ export default function CaseStudyPage() {
         <Section title="The chaos experiment" sub="BREAK IT ON PURPOSE, WATCH IT HEAL">
           <p className="mb-4 text-base text-ink-dim">
             The centerpiece. I injected a controlled failure and watched the system detect,
-            respond, and recover — the same practice I helped establish at JPMorgan.
+            respond, and recover - the same practice I helped establish at JPMorgan.
           </p>
           <div className="rounded-2xl border border-line bg-surface p-5">
             {cs.experiment.map((row, i) => (
@@ -136,7 +136,7 @@ export default function CaseStudyPage() {
             {cs.limits.map((l, i) => (
               <li
                 key={i}
-                className="relative py-1.5 pl-5 text-[14.5px] text-ink-dim before:absolute before:left-0 before:text-ink-faint before:content-['—']"
+                className="relative py-1.5 pl-5 text-[14.5px] text-ink-dim before:absolute before:left-0 before:text-ink-faint before:content-['-']"
               >
                 {l}
               </li>

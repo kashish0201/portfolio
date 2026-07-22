@@ -24,13 +24,13 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kashish Phulwani — Software Developer",
+  title: "Kashish Phulwani - Software Developer",
   description:
-    "Software developer. Data pipelines, RESTful services and AI retrieval systems — observable, reproducible, and hard to break.",
+    "Software developer. Data pipelines, RESTful services and AI retrieval systems - observable, reproducible, and hard to break.",
   openGraph: {
-    title: "Kashish Phulwani — Software Developer",
+    title: "Kashish Phulwani - Software Developer",
     description:
-      "Data pipelines, RESTful services and AI retrieval systems — observable, reproducible, and hard to break.",
+      "Data pipelines, RESTful services and AI retrieval systems - observable, reproducible, and hard to break.",
     type: "website",
   },
 };

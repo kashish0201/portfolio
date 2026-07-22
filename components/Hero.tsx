@@ -18,7 +18,7 @@ export default function Hero() {
         </h1>
 
         <p className="mb-1.5 font-display text-[17px] font-semibold tracking-tight text-ink">
-          {profile.name} — {profile.role}
+          {profile.name} - {profile.role}
         </p>
 
         <p className="mb-8 max-w-[50ch] text-[16px] leading-relaxed text-ink-dim">

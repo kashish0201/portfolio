@@ -1,4 +1,4 @@
-// Visuals used in place of screenshots. Deterministic — no Math.random() here,
+// Visuals used in place of screenshots. Deterministic - no Math.random() here,
 // or server and client markup would disagree and React would throw a hydration error.
 
 function Node({ children, dim }: { children: React.ReactNode; dim?: boolean }) {
