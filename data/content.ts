@@ -5,7 +5,7 @@ export const profile = {
   name: "Kashish Phulwani",
   brand: "kashish",
   status: "OPEN TO SUMMER 2027 INTERNSHIPS",
-  role: "Backend & Infrastructure Engineer",
+  role: "Software Developer",
   headline: [
     { text: "Somewhere between ", accent: false },
     { text: "\u201Cwhat if?\u201D", accent: true },

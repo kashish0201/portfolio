@@ -24,11 +24,11 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kashish Phulwani — Backend & Infrastructure Engineer",
+  title: "Kashish Phulwani — Software Developer",
   description:
-    "Backend and infrastructure engineer. Data pipelines, RESTful services and AI retrieval systems — observable, reproducible, and hard to break.",
+    "Software developer. Data pipelines, RESTful services and AI retrieval systems — observable, reproducible, and hard to break.",
   openGraph: {
-    title: "Kashish Phulwani — Backend & Infrastructure Engineer",
+    title: "Kashish Phulwani — Software Developer",
     description:
       "Data pipelines, RESTful services and AI retrieval systems — observable, reproducible, and hard to break.",
     type: "website",
