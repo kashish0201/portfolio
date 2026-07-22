@@ -32,7 +32,7 @@ export function RagViz() {
           <Node dim>live web search</Node>
         </div>
         <Arrow />
-        <Node dim>SSE stream</Node>
+        <Node dim>response</Node>
       </div>
     </div>
   );
